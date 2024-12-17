@@ -62,72 +62,98 @@ const Sidebar = () => {
             </Link>
           </li>
 
-          <li
-            onClick={() => setActive("Rechenzentrum")}
-            tabIndex={0}
-            className="w-full bg-transparent collapse collapse-arrow"
-          >
-            <div
-              className={`flex items-center w-full gap-4 collapse-title  min-h-[11px] py-2 pe-2  transition-all duration-150 ease-in hover:text-blue-500   ${
-                active === "Rechenzentrum"
-                  ? "text-blue-600 bg-blue-100  transition-all duration-150 ease-linear "
-                  : "text-gray-600"
-              } rounded-[7px]`}
+          <Link to={"/dashboard/datacenter"}>
+            <li
+              onClick={() => setActive("Rechenzentrum")}
+              tabIndex={0}
+              className="w-full bg-transparent collapse collapse-arrow"
             >
-              <DataStorage color={"#868D95"} />
-              Rechenzentrum
-            </div>
-            <div className="ps-10 collapse-content">
-              <ul className="mt-2 bg-transparent rounded-t-none">
-                <li
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setSubMenuActive("data");
-                  }}
-                  className={`cursor-pointer ${
-                    subMenuActive === "data" && "text-blue-600"
-                  }`}
-                >
-                  Data
-                </li>
-                <li>Monitoring data</li>
-                <li>Monitoring List</li>
-              </ul>
-            </div>
-          </li>
-          <li
-            onClick={() => setActive("Benutzerverwaltung")}
-            tabIndex={0}
-            className="w-full bg-transparent collapse collapse-arrow"
-          >
-            <div
-              className={`flex items-center w-full gap-4 collapse-title  min-h-[11px] py-2 pe-2 transition-all duration-150 ease-in hover:text-blue-500   ${
-                active === "Benutzerverwaltung"
-                  ? "text-blue-600 bg-blue-100  transition-all duration-150 ease-linear "
-                  : "text-gray-600"
-              } rounded-[7px]`}
+              <div
+                className={`flex items-center w-full gap-4 collapse-title  min-h-[11px] py-2 pe-2  transition-all duration-150 ease-in hover:text-blue-500   ${
+                  active === "Rechenzentrum"
+                    ? "text-blue-600 bg-blue-100  transition-all duration-150 ease-linear "
+                    : "text-gray-600"
+                } rounded-[7px]`}
+              >
+                <DataStorage color={"#868D95"} />
+                Rechenzentrum
+              </div>
+              <div className="ps-10 collapse-content">
+                <ul className="mt-2 bg-transparent rounded-t-none">
+                  <li
+                    onClick={(e) => {
+                      setSubMenuActive("data");
+                    }}
+                    className={`cursor-pointer ${
+                      subMenuActive === "data" ||
+                      (active === "Rechenzentrum" && "text-blue-600")
+                    }`}
+                  >
+                    Data
+                  </li>
+                  <li>Monitoring data</li>
+                  <li>Monitoring List</li>
+                </ul>
+              </div>
+            </li>
+          </Link>
+
+          <Link to={"/dashboard/doctor_accounts"}>
+            <li
+              onClick={() => setActive("Benutzerverwaltung")}
+              tabIndex={0}
+              className="w-full bg-transparent collapse collapse-arrow"
             >
-              <img src="/images/user-icon.png" alt="" />
-              Benutzerverwaltung
-            </div>
-            <div className="ps-10 collapse-content">
-              <ul className="mt-2 bg-transparent rounded-t-none">
-                <li
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setSubMenuActive("data");
-                  }}
-                  className={`cursor-pointer ${
-                    subMenuActive === "data" && "text-blue-600"
-                  }`}
-                >
-                  Data
-                </li>
-                <li>Monitoring data</li>
-                <li>Monitoring List</li>
-              </ul>
-            </div>
-          </li>
+              <div
+                className={`flex items-center w-full gap-4 collapse-title  min-h-[11px] py-2 pe-2 transition-all duration-150 ease-in hover:text-blue-500   ${
+                  active === "Benutzerverwaltung"
+                    ? "text-blue-600 bg-blue-100  transition-all duration-150 ease-linear "
+                    : "text-gray-600"
+                } rounded-[7px]`}
+              >
+                <img src="/images/user-icon.png" alt="" />
+                Benutzerverwaltung
+              </div>
+              <div className="ps-10 collapse-content">
+                <ul className="mt-2 bg-transparent rounded-t-none">
+                  <li
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSubMenuActive("data");
+                    }}
+                    className={`cursor-pointer ${
+                      subMenuActive === "data" ||
+                      (active === "Benutzerverwaltung" && "text-blue-600")
+                    }`}
+                  >
+                    Doctors
+                  </li>
+                  <li
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSubMenuActive("Monitoring");
+                    }}
+                    className={`cursor-pointer ${
+                      subMenuActive === "Monitoring" && "text-blue-600"
+                    }`}
+                  >
+                    Department manager
+                  </li>
+                  <li
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSubMenuActive("MonitoringList");
+                    }}
+                    className={`cursor-pointer ${
+                      subMenuActive === "MonitoringList" && "text-blue-600"
+                    }`}
+                  >
+                    Monitoring List
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </Link>
           <li
             onClick={(e) => {
               e.stopPropagation();

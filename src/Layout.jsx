@@ -5,6 +5,8 @@ import Sidebar from "./components/Common/Sidebars/Sidebar";
 import Loading from "./components/Loading/Loading";
 import ModelAnsicht from "./components/Model/ModelAnsicht";
 import ModelFilter from "./components/Model/ModelFilter";
+import DetailsForm from "./components/Model/DetailsForm";
+import GeräteverwaltungForm from "./components/Model/GeräteverwaltungForm";
 
 const Layout = () => {
   const [loading, setLoading] = useState(true);
@@ -33,6 +35,8 @@ const Layout = () => {
 
             <ModelAnsicht />
             <ModelFilter />
+            <DetailsForm />
+            <GeräteverwaltungForm />
           </div>
         </div>
       )}

@@ -23,6 +23,8 @@ const router = createBrowserRouter(
         <Route index element={<Dashboard />} />
         <Route path="profile" element={<Dashboard />} />
         <Route path="patienten" element={<Dashboard />} />
+        <Route path="datacenter" element={<Dashboard />} />
+        <Route path="doctor_accounts" element={<Dashboard />} />
         <Route path="cgmreport" element={<Dashboard />} />
         <Route path="support" element={<Dashboard />} />
       </Route>

@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { useLocation } from "react-router-dom";
+import { parsePath, useLocation } from "react-router-dom";
 
 const PatientenTable = React.lazy(() => import("../TableDatas/TableDataChart"));
 import SearchFilterBar from "./../SearchBars/SearchFilterBar";
@@ -8,6 +8,8 @@ import HilfeSupport from "../Support/HilfeSupport";
 import ProfilePage from "../Profiles/Profile";
 import GeräteverwaltungTable from "../TableDatas/GeräteverwaltungTable";
 import Pagination from "../Paginations/Pagination";
+import DataCenterTable from "../TableDatas/DataCenterTable";
+import DoctorsTable from "../TableDatas/DoctorsTable";
 
 const Dashboard = () => {
   const location = useLocation();
@@ -104,6 +106,21 @@ const Dashboard = () => {
         <>
           <GeräteverwaltungTable />
           <Pagination />
+        </>
+      )}
+
+      {pathname === "dashboarddatacenter" && (
+        <>
+          <SearchFilterBar pathname={pathname} />
+
+          <DataCenterTable pathname={pathname} />
+        </>
+      )}
+
+      {pathname === "dashboarddoctor_accounts" && (
+        <>
+          <SearchFilterBar pathname={pathname} />
+          <DoctorsTable />
         </>
       )}
     </div>

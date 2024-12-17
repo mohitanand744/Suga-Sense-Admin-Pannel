@@ -1,10 +1,13 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import Pagination from "../Paginations/Pagination";
 
-export default function PatientenTable({ pathname }) {
+const DataCenterTable = ({ pathname }) => {
+  const navigate = useNavigate();
+
   const patients = [
     {
       name: "Janim Kim",
+      SensorID: "66WS77",
       age: 22,
       gender: "männlich",
       phone: "20220 102 45",
@@ -19,6 +22,7 @@ export default function PatientenTable({ pathname }) {
     },
     {
       name: "Janim Kim",
+      SensorID: "66WS77",
       age: 22,
       gender: "männlich",
       phone: "20220 102 45",
@@ -33,6 +37,7 @@ export default function PatientenTable({ pathname }) {
     },
     {
       name: "Janim Kim",
+      SensorID: "66WS77",
       age: 22,
       gender: "männlich",
       phone: "20220 102 45",
@@ -47,6 +52,7 @@ export default function PatientenTable({ pathname }) {
     },
     {
       name: "Kanim Kim",
+      SensorID: "66WS77",
       age: 22,
       gender: "männlich",
       phone: "20220 102 45",
@@ -61,27 +67,32 @@ export default function PatientenTable({ pathname }) {
     },
   ];
 
-  const navigate = useNavigate();
-
   return (
-    <div className={` ${pathname !== "dashboard" && "p-3 md:p-8"}`}>
+    <div className={` ${pathname !== "dashboard" && "p-3 "}`}>
+      {/* 
+    
+    
+    
       <div className="flex items-center px-3 py-1 mb-4 space-x-2 border rounded-md shadow-sm w-fit">
         <span className="font-medium text-gray-400">Date:</span>
         <span className="font-semibold text-gray-700">12-12-2024</span>
         <span className="text-gray-500">To</span>
         <span className="font-semibold text-gray-700">1-1-2025</span>
         <button className="text-gray-400 hover:text-gray-700 focus:outline-none">
-          &#x2715; {/* Unicode cross symbol */}
-        </button>
+          &#x2715; 
+          </button>
       </div>
+    
+     */}
 
       {/*  <h2 className="mb-4 text-lg font-semibold text-black md:text-2xl">
-        Ausgewählte Patienten
-      </h2> */}
+      Ausgewählte Patienten
+    </h2> */}
       <div className="overflow-x-auto hideScrollBar">
         <table className="w-full text-sm text-left border-collapse table-auto whitespace-nowrap lg:whitespace-normal">
           <thead>
             <tr className="font-medium text-gray-600 bg-gray-100 ">
+              <th className="px-3 py-4 text-center">Sensor ID</th>
               <th className="px-3 py-4 text-center">Name und Details</th>
               <th className="px-3 py-4 text-center">Letzte Daten</th>
               <th className="px-3 py-4 text-center">Letzter Glucosewert</th>
@@ -101,8 +112,9 @@ export default function PatientenTable({ pathname }) {
                 }}
                 className={`${
                   index % 2 === 0 ? "bg-white" : "bg-gray-50"
-                } hover:bg-gray-100`}
+                } hover:bg-gray-100 `}
               >
+                <td className="px-1 ps-3">{patient.SensorID}</td>
                 {/* Name and Details */}
                 <td className="px-1">
                   <div>
@@ -171,7 +183,7 @@ export default function PatientenTable({ pathname }) {
                 </td>
 
                 {/* Status */}
-                <td className="p-4">
+                <td className="p-4 ">
                   <button
                     onClick={(e) => e.stopPropagation()}
                     className="w-[6rem] text-center px-4 py-2 text-sm font-medium text-white bg-[#0480CA] rounded-xl"
@@ -185,10 +197,14 @@ export default function PatientenTable({ pathname }) {
                   <label
                     htmlFor="my_modal_7"
                     onClick={(e) => e.stopPropagation()}
-                    className=" flex items-center gap-2 w-[6rem] text-center px-4  py-2 text-sm font-medium bg-gray-500 rounded-xl text-gray-50 hover:bg-gray-400 "
+                    className="flex items-center justify-center gap-1 px-3 py-2 text-sm font-medium text-center bg-gray-500 rounded-xl text-gray-50 hover:bg-gray-400"
                   >
-                    <img src="/images/eye.png" alt="" /> Ansicht
+                    <img src="/images/eye.png" alt="" /> view {/* Ansicht */}
                   </label>
+                  <div className="flex justify-center gap-1 mt-1">
+                    <img src="/images/Onboarding1.png" alt="" />
+                    <img src="/images/download.png" alt="" />
+                  </div>
                 </td>
               </tr>
             ))}
@@ -199,4 +215,6 @@ export default function PatientenTable({ pathname }) {
       {pathname === "dashboardpatienten" && <Pagination />}
     </div>
   );
-}
+};
+
+export default DataCenterTable;

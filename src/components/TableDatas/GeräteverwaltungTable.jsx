@@ -86,7 +86,7 @@ const GeräteverwaltungTable = () => {
   return (
     <div className="px-5 mx-auto mt-4 ">
       <div className="overflow-x-auto hideScrollBar">
-        <table className="w-full text-sm text-left border-collapse table-auto whitespace-nowrap">
+        <table className="w-full text-sm text-left border-collapse table-auto ">
           <thead>
             <tr className="text-sm text-left text-gray-700 bg-gray-100">
               <th className="px-4 py-3 text-center border-b">Wählen</th>
@@ -133,7 +133,7 @@ const GeräteverwaltungTable = () => {
                 <td className="px-4 py-2 text-center border-b">
                   {row.deliveryTime}
                 </td>
-                <td className="px-4 py-2 text-center border-b">
+                <td className="px-4 py-2 text-center border-b whitespace-nowrap">
                   <button
                     className={`${getStatusClass(
                       row.status
@@ -142,13 +142,19 @@ const GeräteverwaltungTable = () => {
                     {row.status}
                   </button>
                 </td>
-                <td className="px-4 py-2 space-x-2 border-b">
-                  <button className="px-3 py-2 mx-auto text-gray-100 bg-gray-500 rounded hover:bg-gray-300">
+                <td className="px-4 py-2 space-x-3 border-b ">
+                  <label
+                    htmlFor="my_modal_9"
+                    className="w-full px-3 py-2 mx-auto text-xs text-center text-gray-100 bg-gray-500 rounded hover:bg-gray-300"
+                  >
                     Details
-                  </button>
-                  <button className="px-3 mx-auto py-2 text-white bg-[#94d4f2] rounded hover:bg-blue-600">
+                  </label>
+                  <label
+                    htmlFor="my_modal_10"
+                    className="px-3 mx-auto text-xs py-2 text-white bg-[#94d4f2] w-full rounded hover:bg-blue-600"
+                  >
                     Zuweisung
-                  </button>
+                  </label>
                 </td>
               </tr>
             ))}
